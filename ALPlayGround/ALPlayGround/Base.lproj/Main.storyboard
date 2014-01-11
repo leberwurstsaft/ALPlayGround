@@ -53,22 +53,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fy6-NY-xD3" secondAttribute="trailing" constant="20" id="3i9-4v-KTl"/>
-                            <constraint firstItem="dWw-Qs-T7F" firstAttribute="top" secondItem="fy6-NY-xD3" secondAttribute="bottom" constant="292" id="C4j-xa-JfC"/>
                             <constraint firstItem="fy6-NY-xD3" firstAttribute="width" secondItem="6ff-Hg-aaG" secondAttribute="width" id="D2C-1K-j6Y"/>
                             <constraint firstAttribute="trailing" secondItem="6ff-Hg-aaG" secondAttribute="trailing" constant="20" id="EH6-r6-nCV"/>
                             <constraint firstItem="6ff-Hg-aaG" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="ULy-ve-kuY"/>
                             <constraint firstItem="fy6-NY-xD3" firstAttribute="top" secondItem="CLu-aK-upP" secondAttribute="bottom" id="VrL-aW-ISl"/>
-                            <constraint firstItem="6ff-Hg-aaG" firstAttribute="top" secondItem="CLu-aK-upP" secondAttribute="bottom" constant="272" id="ilB-3D-dbs"/>
+                            <constraint firstItem="6ff-Hg-aaG" firstAttribute="top" secondItem="fy6-NY-xD3" secondAttribute="bottom" constant="16" id="Wf2-zj-3d4"/>
                             <constraint firstItem="dWw-Qs-T7F" firstAttribute="top" secondItem="6ff-Hg-aaG" secondAttribute="bottom" constant="20" id="ntj-VA-vdL"/>
                             <constraint firstItem="fy6-NY-xD3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="u8g-Ba-KJJ"/>
                             <constraint firstItem="fy6-NY-xD3" firstAttribute="height" secondItem="6ff-Hg-aaG" secondAttribute="height" id="vVN-rh-c3F"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="layoutConstraintsPortrait" destination="3i9-4v-KTl" id="Iau-sm-c9T"/>
-                        <outletCollection property="layoutConstraintsPortrait" destination="ULy-ve-kuY" id="Poo-2E-bD7"/>
-                        <outletCollection property="layoutConstraintsPortrait" destination="ilB-3D-dbs" id="AOe-8D-Pzd"/>
-                        <outletCollection property="layoutConstraintsPortrait" destination="C4j-xa-JfC" id="0nd-wE-OSs"/>
+                        <outlet property="green" destination="fy6-NY-xD3" id="iKx-Fm-37b"/>
+                        <outlet property="orange" destination="6ff-Hg-aaG" id="lsh-oj-9Be"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="ULy-ve-kuY" id="KIr-g2-ocI"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="3i9-4v-KTl" id="Dfz-WU-pv8"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="Wf2-zj-3d4" id="gxd-uF-RcO"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="ULy-ve-kuY" id="TMo-nV-yyx"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="3i9-4v-KTl" id="vFh-An-LNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
