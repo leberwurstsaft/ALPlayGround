@@ -17,6 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIView *green;
 @property (strong, nonatomic) IBOutlet UIView *orange;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIView *labelContainer;
+
 @end
 
 @implementation ALPViewController
@@ -29,27 +32,71 @@
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(_green, _orange);
+
+    NSDictionary *views = NSDictionaryOfVariableBindings(_green, _orange, _labelContainer, _imageView);
     if (!self.layoutConstraintsLandscape) {
+
+        // overall layout of green and orange boxes
         self.layoutConstraintsLandscape = [NSMutableArray arrayWithArray:
                                            [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_green]-16-[_orange]"
                                                                                    options:NSLayoutFormatDirectionLeadingToTrailing
                                                                                    metrics:nil
                                                                                      views:views]];
-        [self.layoutConstraintsLandscape addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_orange]"
-                                                                                            options:NSLayoutFormatDirectionLeadingToTrailing
-                                                                                            metrics:nil
-                                                                                              views:views]];
-        [self.layoutConstraintsLandscape addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_green]-20-|"
-                                                                                                     options:NSLayoutFormatDirectionLeadingToTrailing
-                                                                                                     metrics:nil
-                                                                                                       views:views]];
+        [self.layoutConstraintsLandscape addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_orange]"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil
+                                                   views:views]];
+
+        [self.layoutConstraintsLandscape addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_green]-20-|"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil
+                                                   views:views]];
+
+
+        // inner layout of green box
+        [self.layoutConstraintsLandscape addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_imageView]-56-[_labelContainer]|"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil
+                                                   views:views]];
+
+        [self.layoutConstraintsLandscape addObject:
+         [NSLayoutConstraint constraintWithItem:_imageView
+                                      attribute:NSLayoutAttributeCenterX
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_green
+                                      attribute:NSLayoutAttributeCenterX
+                                     multiplier:1
+                                       constant:0]];
+
+        [self.layoutConstraintsLandscape addObject:
+         [NSLayoutConstraint constraintWithItem:_imageView
+                                      attribute:NSLayoutAttributeCenterX
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_labelContainer
+                                      attribute:NSLayoutAttributeCenterX
+                                     multiplier:1
+                                       constant:0]];
+
+        [self.layoutConstraintsLandscape addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_labelContainer]|"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil
+                                                   views:views]];
+
+
     }
 
     [self.view removeConstraints:self.layoutConstraintsLandscape];
     [self.view removeConstraints:self.layoutConstraintsPortrait];
     [self.view addConstraints:(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) ? self.layoutConstraintsPortrait : self.layoutConstraintsLandscape];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    NSLog(@"labelContainer: %@", self.labelContainer);
 }
 
 - (void)didReceiveMemoryWarning
