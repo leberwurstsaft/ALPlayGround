@@ -9,6 +9,7 @@
 #import "ALPViewController.h"
 
 @interface ALPViewController ()
+@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *layoutConstraintsPortrait;
 
 @end
 
@@ -18,6 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"constraints: %@", self.layoutConstraintsPortrait);
 }
 
 - (void)didReceiveMemoryWarning

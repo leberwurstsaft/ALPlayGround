@@ -64,6 +64,12 @@
                             <constraint firstItem="fy6-NY-xD3" firstAttribute="height" secondItem="6ff-Hg-aaG" secondAttribute="height" id="vVN-rh-c3F"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="layoutConstraintsPortrait" destination="3i9-4v-KTl" id="Iau-sm-c9T"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="ULy-ve-kuY" id="Poo-2E-bD7"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="ilB-3D-dbs" id="AOe-8D-Pzd"/>
+                        <outletCollection property="layoutConstraintsPortrait" destination="C4j-xa-JfC" id="0nd-wE-OSs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
