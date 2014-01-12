@@ -89,6 +89,11 @@
 
     }
 
+    /*  simple, but not best performance: install all constraints in self.view
+     *  --> it would be better to install the constraints in the closest common ancestor of the concerning views of the constraint
+     *  (but would also make it more complex to set up, since it would require several IBOutletCollections, arrays etc.
+     */
+
     [self.view removeConstraints:self.layoutConstraintsLandscape];
     [self.view removeConstraints:self.layoutConstraintsPortrait];
     [self.view addConstraints:(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) ? self.layoutConstraintsPortrait : self.layoutConstraintsLandscape];
