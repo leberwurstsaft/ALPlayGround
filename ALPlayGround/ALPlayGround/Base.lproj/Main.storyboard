@@ -124,8 +124,6 @@
                         <outletCollection property="layoutConstraintsPortrait" destination="ULy-ve-kuY" id="KIr-g2-ocI"/>
                         <outletCollection property="layoutConstraintsPortrait" destination="3i9-4v-KTl" id="Dfz-WU-pv8"/>
                         <outletCollection property="layoutConstraintsPortrait" destination="Wf2-zj-3d4" id="gxd-uF-RcO"/>
-                        <outletCollection property="layoutConstraintsPortrait" destination="ULy-ve-kuY" id="TMo-nV-yyx"/>
-                        <outletCollection property="layoutConstraintsPortrait" destination="3i9-4v-KTl" id="vFh-An-LNa"/>
                         <outletCollection property="layoutConstraintsPortrait" destination="spQ-Ra-rTL" id="qcC-QI-ylJ"/>
                         <outletCollection property="layoutConstraintsPortrait" destination="ePt-ub-6tS" id="cWn-ZD-Gwj"/>
                         <outletCollection property="layoutConstraintsPortrait" destination="39m-sp-3Eu" id="lqX-iS-ys3"/>

@@ -24,11 +24,6 @@
 
 @implementation ALPViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
@@ -97,17 +92,6 @@
     [self.view removeConstraints:self.layoutConstraintsLandscape];
     [self.view removeConstraints:self.layoutConstraintsPortrait];
     [self.view addConstraints:(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) ? self.layoutConstraintsPortrait : self.layoutConstraintsLandscape];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    NSLog(@"labelContainer: %@", self.labelContainer);
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
