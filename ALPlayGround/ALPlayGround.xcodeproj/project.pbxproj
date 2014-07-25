@@ -461,6 +461,7 @@
 				7368DA9C188038220088701A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7368DA9D188038220088701A /* Build configuration list for PBXNativeTarget "ALPlayGroundTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +470,7 @@
 				7368DA9F188038220088701A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

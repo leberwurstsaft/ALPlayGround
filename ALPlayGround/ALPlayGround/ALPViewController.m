@@ -24,6 +24,9 @@
 
 @implementation ALPViewController
 
+-(NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
