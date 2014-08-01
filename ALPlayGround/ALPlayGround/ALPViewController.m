@@ -30,6 +30,13 @@
     return UIInterfaceOrientationMaskAll;
 }
 
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // initial set the trait collection for current interface orientation
+    [self setTraitCollectionForSize:self.view.frame.size];
+}
+
 #pragma mark - New Methods
 
 -(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
@@ -49,7 +56,29 @@
     } completion:nil];
 }
 
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+
+    // if the interface orientation change set the new trait collection for size
+    [self setTraitCollectionForSize:size];
+}
+
 #pragma mark - My Private Methods
+
+-(void)setTraitCollectionForSize:(CGSize)size {
+    
+    if (self.view.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        
+        // determine new Size Class
+        UIUserInterfaceSizeClass newSizeClass = (size.width > 768.0 ? UIUserInterfaceSizeClassCompact : UIUserInterfaceSizeClassRegular);
+        
+        // create a new Trait Collection
+        UITraitCollection *newTraitCollection = [UITraitCollection traitCollectionWithVerticalSizeClass:newSizeClass];
+        
+        // assign new Trait Collection to child view = self
+        [self.navigationController setOverrideTraitCollection:newTraitCollection forChildViewController:self];
+        
+    }
+}
 
 -(void)updateConstraintsForTraitCollection:(UITraitCollection *)collection {
     

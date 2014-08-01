@@ -22,6 +22,7 @@
 		7368DA95188038220088701A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7368DA93188038220088701A /* InfoPlist.strings */; };
 		7368DA97188038220088701A /* ALPlayGroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7368DA96188038220088701A /* ALPlayGroundTests.m */; };
 		B8AC3D2A198B96C200B52104 /* ALPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AC3D29198B96C200B52104 /* ALPUtilities.m */; };
+		B8AC3D30198BC27900B52104 /* ALPNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AC3D2F198BC27900B52104 /* ALPNavigationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		7368DA96188038220088701A /* ALPlayGroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPlayGroundTests.m; sourceTree = "<group>"; };
 		B8AC3D28198B96C200B52104 /* ALPUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPUtilities.h; sourceTree = "<group>"; };
 		B8AC3D29198B96C200B52104 /* ALPUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPUtilities.m; sourceTree = "<group>"; };
+		B8AC3D2E198BC27900B52104 /* ALPNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPNavigationViewController.h; sourceTree = "<group>"; };
+		B8AC3D2F198BC27900B52104 /* ALPNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPNavigationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +123,12 @@
 				7368DA7D188038220088701A /* Main.storyboard */,
 				7368DA80188038220088701A /* ALPViewController.h */,
 				7368DA81188038220088701A /* ALPViewController.m */,
-				7368DA83188038220088701A /* Images.xcassets */,
-				7368DA72188038220088701A /* Supporting Files */,
+				B8AC3D2E198BC27900B52104 /* ALPNavigationViewController.h */,
+				B8AC3D2F198BC27900B52104 /* ALPNavigationViewController.m */,
 				B8AC3D28198B96C200B52104 /* ALPUtilities.h */,
 				B8AC3D29198B96C200B52104 /* ALPUtilities.m */,
+				7368DA83188038220088701A /* Images.xcassets */,
+				7368DA72188038220088701A /* Supporting Files */,
 			);
 			path = ALPlayGround;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				7368DA78188038220088701A /* main.m in Sources */,
 				B8AC3D2A198B96C200B52104 /* ALPUtilities.m in Sources */,
 				7368DA82188038220088701A /* ALPViewController.m in Sources */,
+				B8AC3D30198BC27900B52104 /* ALPNavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +393,7 @@
 				GCC_PREFIX_HEADER = "ALPlayGround/ALPlayGround-Prefix.pch";
 				INFOPLIST_FILE = "ALPlayGround/ALPlayGround-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -401,7 +407,7 @@
 				GCC_PREFIX_HEADER = "ALPlayGround/ALPlayGround-Prefix.pch";
 				INFOPLIST_FILE = "ALPlayGround/ALPlayGround-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
