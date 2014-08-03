@@ -118,16 +118,9 @@
 		7368DA71188038220088701A /* ALPlayGround */ = {
 			isa = PBXGroup;
 			children = (
-				7368DA7A188038220088701A /* ALPAppDelegate.h */,
-				7368DA7B188038220088701A /* ALPAppDelegate.m */,
-				7368DA7D188038220088701A /* Main.storyboard */,
-				7368DA80188038220088701A /* ALPViewController.h */,
-				7368DA81188038220088701A /* ALPViewController.m */,
-				B8AC3D2E198BC27900B52104 /* ALPNavigationViewController.h */,
-				B8AC3D2F198BC27900B52104 /* ALPNavigationViewController.m */,
-				B8AC3D28198B96C200B52104 /* ALPUtilities.h */,
-				B8AC3D29198B96C200B52104 /* ALPUtilities.m */,
-				7368DA83188038220088701A /* Images.xcassets */,
+				B8AC3D33198ED85000B52104 /* Common */,
+				B8AC3D32198ED84700B52104 /* Controller */,
+				B8AC3D31198ED83800B52104 /* Misc */,
 				7368DA72188038220088701A /* Supporting Files */,
 			);
 			path = ALPlayGround;
@@ -160,6 +153,37 @@
 				7368DA93188038220088701A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8AC3D31198ED83800B52104 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				B8AC3D28198B96C200B52104 /* ALPUtilities.h */,
+				B8AC3D29198B96C200B52104 /* ALPUtilities.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		B8AC3D32198ED84700B52104 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7368DA80188038220088701A /* ALPViewController.h */,
+				7368DA81188038220088701A /* ALPViewController.m */,
+				B8AC3D2E198BC27900B52104 /* ALPNavigationViewController.h */,
+				B8AC3D2F198BC27900B52104 /* ALPNavigationViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B8AC3D33198ED85000B52104 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7368DA7A188038220088701A /* ALPAppDelegate.h */,
+				7368DA7B188038220088701A /* ALPAppDelegate.m */,
+				7368DA7D188038220088701A /* Main.storyboard */,
+				7368DA83188038220088701A /* Images.xcassets */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

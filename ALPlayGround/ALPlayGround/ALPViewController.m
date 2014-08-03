@@ -10,7 +10,8 @@
 
 @interface ALPViewController ()
 
-@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *layoutConstraintsPortrait;
+@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *oldLayoutConstraintsPortrait;
+@property (strong, nonatomic) NSMutableArray *layoutConstraintsPortrait;
 @property (strong, nonatomic) NSMutableArray *layoutConstraintsLandscape;
 
 
@@ -83,7 +84,7 @@
 -(void)updateConstraintsForTraitCollection:(UITraitCollection *)collection {
     
     [self.view removeConstraints:self.layoutConstraintsLandscape];
-    [self.view removeConstraints:self.layoutConstraintsPortrait];
+    [self.view removeConstraints:self.oldLayoutConstraintsPortrait];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_green, _orange, _labelContainer, _imageView);
     if (collection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
@@ -141,6 +142,40 @@
         [self.view addConstraints:self.layoutConstraintsLandscape];
     }
     else {
+        self.layoutConstraintsPortrait = [NSMutableArray arrayWithArray:
+                                          [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_green]-20-|"
+                                                                                  options:NSLayoutFormatDirectionLeadingToTrailing
+                                                                                  metrics:nil
+                                                                                    views:views]];
+        
+        [self.layoutConstraintsPortrait addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_orange]-20-|"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil views:views]];
+        
+        [self.layoutConstraintsPortrait addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_green]-20-[_orange]-20-|"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil
+                                                   views:views]];
+        
+        [self.layoutConstraintsPortrait addObject:
+         [NSLayoutConstraint constraintWithItem:_green
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_orange
+                                      attribute:NSLayoutAttributeWidth
+                                     multiplier:1
+                                       constant:0]];
+        
+        [self.layoutConstraintsPortrait addObject:
+         [NSLayoutConstraint constraintWithItem:_green
+                                      attribute:NSLayoutAttributeHeight
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_orange
+                                      attribute:NSLayoutAttributeHeight
+                                     multiplier:1
+                                       constant:0]];
         [self.view addConstraints:self.layoutConstraintsPortrait];
     }
     
