@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xLQ-bB-tzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xLQ-bB-tzF">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
+        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-Hg-aaG" userLabel="Orange">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ff-Hg-aaG" userLabel="Orange">
                                 <rect key="frame" x="20" y="318" width="560" height="262"/>
                                 <color key="backgroundColor" red="0.81003393310000005" green="0.40150103602283771" blue="0.18829830544677739" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -24,7 +25,7 @@
                                 <rect key="frame" x="20" y="40" width="560" height="262"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="F8e-sK-0RU" userLabel="image">
-                                        <rect key="frame" x="0.0" y="67" width="133" height="128"/>
+                                        <rect key="frame" x="1" y="67" width="133" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="aLp-v7-IgT"/>
                                             <constraint firstAttribute="width" constant="133" id="chc-ow-M1p"/>
@@ -81,24 +82,19 @@
                                             <constraint firstItem="q5a-C1-V98" firstAttribute="height" secondItem="4U0-aJ-j42" secondAttribute="height" id="iuJ-pA-2h9"/>
                                             <constraint firstItem="1h9-zg-7gc" firstAttribute="centerX" secondItem="Sxu-Sx-Onk" secondAttribute="centerX" id="kFs-uk-iYo"/>
                                             <constraint firstItem="Sxu-Sx-Onk" firstAttribute="top" secondItem="4U0-aJ-j42" secondAttribute="bottom" id="ptY-d9-ZQb"/>
-                                            <constraint firstAttribute="height" constant="128" id="spQ-Ra-rTL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.57702453009999999" green="0.81003393310000005" blue="0.4594054924" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="F8e-sK-0RU" secondAttribute="centerY" id="39m-sp-3Eu"/>
-                                    <constraint firstItem="F8e-sK-0RU" firstAttribute="leading" secondItem="fy6-NY-xD3" secondAttribute="leading" id="RRN-cA-OfG"/>
-                                    <constraint firstAttribute="centerY" secondItem="8ky-uC-aEa" secondAttribute="centerY" id="ePt-ub-6tS"/>
-                                    <constraint firstItem="8ky-uC-aEa" firstAttribute="leading" secondItem="F8e-sK-0RU" secondAttribute="trailing" constant="14" id="s7f-Vy-koQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="8ky-uC-aEa" secondAttribute="trailing" id="ynq-fd-kQi"/>
+                                    <constraint firstAttribute="trailing" secondItem="8ky-uC-aEa" secondAttribute="trailing" id="N4q-T8-GzT"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="fy6-NY-xD3" secondAttribute="trailing" constant="20" id="3i9-4v-KTl"/>
-                            <constraint firstAttribute="trailing" secondItem="6ff-Hg-aaG" secondAttribute="trailing" constant="20" id="EH6-r6-nCV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fy6-NY-xD3" secondAttribute="trailing" constant="4" id="622-2P-DC0"/>
+                            <constraint firstItem="fy6-NY-xD3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="XJu-a8-eOH"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -108,13 +104,6 @@
                         <outlet property="imageView" destination="F8e-sK-0RU" id="4qO-2k-pyL"/>
                         <outlet property="labelContainer" destination="8ky-uC-aEa" id="NOv-HQ-uy5"/>
                         <outlet property="orange" destination="6ff-Hg-aaG" id="lsh-oj-9Be"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="39m-sp-3Eu" id="Z4z-ng-Wkx"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="RRN-cA-OfG" id="3ws-aO-bzZ"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="s7f-Vy-koQ" id="aAc-Gc-Ppb"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="spQ-Ra-rTL" id="XIh-yZ-G2O"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="ePt-ub-6tS" id="LvP-Nw-Zsb"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="3i9-4v-KTl" id="jaX-ME-ZXL"/>
-                        <outletCollection property="oldLayoutConstraintsPortrait" destination="ynq-fd-kQi" id="qIa-zA-QlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

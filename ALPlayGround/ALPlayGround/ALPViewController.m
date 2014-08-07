@@ -10,7 +10,6 @@
 
 @interface ALPViewController ()
 
-@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *oldLayoutConstraintsPortrait;
 @property (strong, nonatomic) NSMutableArray *layoutConstraintsPortrait;
 @property (strong, nonatomic) NSMutableArray *layoutConstraintsLandscape;
 
@@ -35,7 +34,9 @@
     [super viewDidLoad];
     
     // initial set the trait collection for current interface orientation
-    [self setTraitCollectionForSize:self.view.frame.size];
+//    [self setTraitCollectionForSize:self.view.frame.size];
+    
+    [self updateConstraintsForTraitCollection:self.view.traitCollection];
 }
 
 #pragma mark - New Methods
@@ -84,33 +85,51 @@
 -(void)updateConstraintsForTraitCollection:(UITraitCollection *)collection {
     
     [self.view removeConstraints:self.layoutConstraintsLandscape];
-    [self.view removeConstraints:self.oldLayoutConstraintsPortrait];
+    [self.view removeConstraints:self.layoutConstraintsPortrait];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_green, _orange, _labelContainer, _imageView);
     if (collection.verticalSizeClass == UIUserInterfaceSizeClassCompact) {
         
-        // overall layout of green and orange boxes
+        // add constraints for green and orange view
         self.layoutConstraintsLandscape = [NSMutableArray arrayWithArray:
-                                           [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_green]-16-[_orange]"
+                                           [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[_green]-20-[_orange]-20-|"
                                                                                    options:NSLayoutFormatDirectionLeadingToTrailing
                                                                                    metrics:nil
                                                                                      views:views]];
+        
         [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_orange]"
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_green]-20-|"
                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                  metrics:nil
                                                    views:views]];
         
         [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_green]-20-|"
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_orange]-20-|"
                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                  metrics:nil
                                                    views:views]];
         
+        [self.layoutConstraintsLandscape addObject:
+         [NSLayoutConstraint constraintWithItem:_green
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_orange
+                                      attribute:NSLayoutAttributeWidth
+                                     multiplier:1
+                                       constant:0]];
         
-        // inner layout of green box
+        [self.layoutConstraintsLandscape addObject:
+         [NSLayoutConstraint constraintWithItem:_green
+                                      attribute:NSLayoutAttributeHeight
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_orange
+                                      attribute:NSLayoutAttributeHeight
+                                     multiplier:1
+                                       constant:0]];
+        
+        // add constraints for imageView and labelContainer
         [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_imageView]-56-[_labelContainer]|"
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_imageView]-20-[_labelContainer]|"
                                                  options:NSLayoutFormatDirectionLeadingToTrailing
                                                  metrics:nil
                                                    views:views]];
@@ -132,7 +151,7 @@
                                       attribute:NSLayoutAttributeCenterX
                                      multiplier:1
                                        constant:0]];
-        
+
         [self.layoutConstraintsLandscape addObjectsFromArray:
          [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_labelContainer]|"
                                                  options:NSLayoutFormatDirectionLeadingToTrailing
@@ -176,6 +195,31 @@
                                       attribute:NSLayoutAttributeHeight
                                      multiplier:1
                                        constant:0]];
+        
+        [self.layoutConstraintsPortrait addObject:
+         [NSLayoutConstraint constraintWithItem:_imageView
+                                      attribute:NSLayoutAttributeCenterY
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_green
+                                      attribute:NSLayoutAttributeCenterY
+                                     multiplier:1
+                                       constant:0]];
+        
+        [self.layoutConstraintsPortrait addObject:
+         [NSLayoutConstraint constraintWithItem:_imageView
+                                      attribute:NSLayoutAttributeCenterY
+                                      relatedBy:NSLayoutRelationEqual
+                                         toItem:_labelContainer
+                                      attribute:NSLayoutAttributeCenterY
+                                     multiplier:1
+                                       constant:0]];
+        
+        [self.layoutConstraintsPortrait addObjectsFromArray:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_imageView]-20-[_labelContainer]|"
+                                                 options:NSLayoutFormatDirectionLeadingToTrailing
+                                                 metrics:nil
+                                                   views:views]];
+        
         [self.view addConstraints:self.layoutConstraintsPortrait];
     }
     
