@@ -34,7 +34,7 @@
     [super viewDidLoad];
     
     // initial set the trait collection for current interface orientation
-//    [self setTraitCollectionForSize:self.view.frame.size];
+    [self setTraitCollectionForSize:self.view.frame.size];
     
     [self updateConstraintsForTraitCollection:self.view.traitCollection];
 }

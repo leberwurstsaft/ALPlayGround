@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xLQ-bB-tzF">
     <dependencies>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -27,8 +28,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="F8e-sK-0RU" userLabel="image">
                                         <rect key="frame" x="1" y="67" width="133" height="128"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="aLp-v7-IgT"/>
-                                            <constraint firstAttribute="width" constant="133" id="chc-ow-M1p"/>
+                                            <constraint firstAttribute="width" secondItem="F8e-sK-0RU" secondAttribute="height" multiplier="133:128" id="v18-le-ifo"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8ky-uC-aEa" userLabel="labelContainer">
@@ -92,10 +92,6 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="fy6-NY-xD3" secondAttribute="trailing" constant="4" id="622-2P-DC0"/>
-                            <constraint firstItem="fy6-NY-xD3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="XJu-a8-eOH"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="mQa-Zs-BBn"/>
