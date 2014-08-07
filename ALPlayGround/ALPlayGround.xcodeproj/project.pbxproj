@@ -13,7 +13,6 @@
 		7368DA76188038220088701A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7368DA74188038220088701A /* InfoPlist.strings */; };
 		7368DA78188038220088701A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7368DA77188038220088701A /* main.m */; };
 		7368DA7C188038220088701A /* ALPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7368DA7B188038220088701A /* ALPAppDelegate.m */; };
-		7368DA7F188038220088701A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7368DA7D188038220088701A /* Main.storyboard */; };
 		7368DA82188038220088701A /* ALPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7368DA81188038220088701A /* ALPViewController.m */; };
 		7368DA84188038220088701A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7368DA83188038220088701A /* Images.xcassets */; };
 		7368DA8B188038220088701A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7368DA8A188038220088701A /* XCTest.framework */; };
@@ -21,6 +20,7 @@
 		7368DA8D188038220088701A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7368DA6F188038220088701A /* UIKit.framework */; };
 		7368DA95188038220088701A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7368DA93188038220088701A /* InfoPlist.strings */; };
 		7368DA97188038220088701A /* ALPlayGroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7368DA96188038220088701A /* ALPlayGroundTests.m */; };
+		B84212531993A89B001DB39D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B84212521993A89B001DB39D /* Main.storyboard */; };
 		B8AC3D2A198B96C200B52104 /* ALPUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AC3D29198B96C200B52104 /* ALPUtilities.m */; };
 		B8AC3D30198BC27900B52104 /* ALPNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8AC3D2F198BC27900B52104 /* ALPNavigationViewController.m */; };
 /* End PBXBuildFile section */
@@ -46,7 +46,6 @@
 		7368DA79188038220088701A /* ALPlayGround-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALPlayGround-Prefix.pch"; sourceTree = "<group>"; };
 		7368DA7A188038220088701A /* ALPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPAppDelegate.h; sourceTree = "<group>"; };
 		7368DA7B188038220088701A /* ALPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPAppDelegate.m; sourceTree = "<group>"; };
-		7368DA7E188038220088701A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7368DA80188038220088701A /* ALPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALPViewController.h; sourceTree = "<group>"; };
 		7368DA81188038220088701A /* ALPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPViewController.m; sourceTree = "<group>"; };
 		7368DA83188038220088701A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		7368DA92188038220088701A /* ALPlayGroundTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALPlayGroundTests-Info.plist"; sourceTree = "<group>"; };
 		7368DA94188038220088701A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7368DA96188038220088701A /* ALPlayGroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALPlayGroundTests.m; sourceTree = "<group>"; };
+		B84212521993A89B001DB39D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		B8AC3D28198B96C200B52104 /* ALPUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPUtilities.h; sourceTree = "<group>"; };
 		B8AC3D29198B96C200B52104 /* ALPUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPUtilities.m; sourceTree = "<group>"; };
 		B8AC3D2E198BC27900B52104 /* ALPNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPNavigationViewController.h; sourceTree = "<group>"; };
@@ -180,8 +180,8 @@
 			children = (
 				7368DA7A188038220088701A /* ALPAppDelegate.h */,
 				7368DA7B188038220088701A /* ALPAppDelegate.m */,
-				7368DA7D188038220088701A /* Main.storyboard */,
 				7368DA83188038220088701A /* Images.xcassets */,
+				B84212521993A89B001DB39D /* Main.storyboard */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -263,9 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B84212531993A89B001DB39D /* Main.storyboard in Resources */,
 				7368DA84188038220088701A /* Images.xcassets in Resources */,
 				7368DA76188038220088701A /* InfoPlist.strings in Resources */,
-				7368DA7F188038220088701A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,14 +317,6 @@
 				7368DA75188038220088701A /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7368DA7D188038220088701A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7368DA7E188038220088701A /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		7368DA93188038220088701A /* InfoPlist.strings */ = {
