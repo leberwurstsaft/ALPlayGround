@@ -71,7 +71,10 @@
         UIUserInterfaceSizeClass newSizeClass = (size.width > 768.0 ? UIUserInterfaceSizeClassCompact : UIUserInterfaceSizeClassRegular);
         
         // create a new Trait Collection
-        UITraitCollection *newTraitCollection = [UITraitCollection traitCollectionWithVerticalSizeClass:newSizeClass];
+//        UITraitCollection *newTraitCollection = [UITraitCollection traitCollectionWithVerticalSizeClass:newSizeClass];
+        UITraitCollection *newVerticalTraitCollection   = [UITraitCollection traitCollectionWithVerticalSizeClass:newSizeClass];
+        UITraitCollection *newHorizontalTraitCollection = [UITraitCollection traitCollectionWithHorizontalSizeClass:newSizeClass];
+        UITraitCollection *newTraitCollection = [UITraitCollection traitCollectionWithTraitsFromCollections:@[newHorizontalTraitCollection, newVerticalTraitCollection]];
         
         // assign new Trait Collection to child view = self
         [self.navigationController setOverrideTraitCollection:newTraitCollection forChildViewController:self];
