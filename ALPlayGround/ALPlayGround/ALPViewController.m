@@ -10,16 +10,6 @@
 
 @interface ALPViewController ()
 
-@property (strong, nonatomic) NSMutableArray *layoutConstraintsPortrait;
-@property (strong, nonatomic) NSMutableArray *layoutConstraintsLandscape;
-
-
-@property (strong, nonatomic) IBOutlet UIView *green;
-@property (strong, nonatomic) IBOutlet UIView *orange;
-
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIView *labelContainer;
-
 @end
 
 @implementation ALPViewController

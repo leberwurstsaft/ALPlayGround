@@ -204,12 +204,6 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="mQa-Zs-BBn"/>
-                    <connections>
-                        <outlet property="green" destination="fy6-NY-xD3" id="iKx-Fm-37b"/>
-                        <outlet property="imageView" destination="F8e-sK-0RU" id="4qO-2k-pyL"/>
-                        <outlet property="labelContainer" destination="8ky-uC-aEa" id="NOv-HQ-uy5"/>
-                        <outlet property="orange" destination="6ff-Hg-aaG" id="lsh-oj-9Be"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
