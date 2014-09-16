@@ -10,88 +10,66 @@
 
 @interface ALPViewController ()
 
-@property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *layoutConstraintsPortrait;
-@property (strong, nonatomic) NSMutableArray *layoutConstraintsLandscape;
-
-
-@property (strong, nonatomic) IBOutlet UIView *green;
-@property (strong, nonatomic) IBOutlet UIView *orange;
-
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) IBOutlet UIView *labelContainer;
-
 @end
 
 @implementation ALPViewController
 
+#pragma mark - Old Methods
 
-- (void)updateViewConstraints {
-    [super updateViewConstraints];
+-(NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
 
-    NSDictionary *views = NSDictionaryOfVariableBindings(_green, _orange, _labelContainer, _imageView);
-    if (!self.layoutConstraintsLandscape) {
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // initial set the trait collection for current interface orientation
+    [self setTraitCollectionForSize:self.view.frame.size];
+}
 
-        // overall layout of green and orange boxes
-        self.layoutConstraintsLandscape = [NSMutableArray arrayWithArray:
-                                           [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_green]-16-[_orange]"
-                                                                                   options:NSLayoutFormatDirectionLeadingToTrailing
-                                                                                   metrics:nil
-                                                                                     views:views]];
-        [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[_orange]"
-                                                 options:NSLayoutFormatDirectionLeadingToTrailing
-                                                 metrics:nil
-                                                   views:views]];
+#pragma mark - New Methods
 
-        [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_green]-20-|"
-                                                 options:NSLayoutFormatDirectionLeadingToTrailing
-                                                 metrics:nil
-                                                   views:views]];
+-(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    NSLog(@"Previous Trait Collection:");
+    [ALPUtilities logTraitCollection:previousTraitCollection];
+          
+    NSLog(@"Current Trait Collection:");
+    [ALPUtilities logTraitCollection:self.view.traitCollection];
+}
 
+-(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super willTransitionToTraitCollection:newCollection withTransitionCoordinator:coordinator];
+    
+    [coordinator animateAlongsideTransition:^(id <UIViewControllerTransitionCoordinatorContext> context) {
+        [self.view setNeedsLayout];
+    } completion:nil];
+}
 
-        // inner layout of green box
-        [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_imageView]-56-[_labelContainer]|"
-                                                 options:NSLayoutFormatDirectionLeadingToTrailing
-                                                 metrics:nil
-                                                   views:views]];
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 
-        [self.layoutConstraintsLandscape addObject:
-         [NSLayoutConstraint constraintWithItem:_imageView
-                                      attribute:NSLayoutAttributeCenterX
-                                      relatedBy:NSLayoutRelationEqual
-                                         toItem:_green
-                                      attribute:NSLayoutAttributeCenterX
-                                     multiplier:1
-                                       constant:0]];
+    // if the interface orientation change set the new trait collection for size
+    [self setTraitCollectionForSize:size];
+}
 
-        [self.layoutConstraintsLandscape addObject:
-         [NSLayoutConstraint constraintWithItem:_imageView
-                                      attribute:NSLayoutAttributeCenterX
-                                      relatedBy:NSLayoutRelationEqual
-                                         toItem:_labelContainer
-                                      attribute:NSLayoutAttributeCenterX
-                                     multiplier:1
-                                       constant:0]];
+#pragma mark - My Private Methods
 
-        [self.layoutConstraintsLandscape addObjectsFromArray:
-         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_labelContainer]|"
-                                                 options:NSLayoutFormatDirectionLeadingToTrailing
-                                                 metrics:nil
-                                                   views:views]];
-
-
+-(void)setTraitCollectionForSize:(CGSize)size {
+    
+    if (self.view.traitCollection.userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        
+        // determine new Size Class
+        UIUserInterfaceSizeClass newSizeClass = (size.width > 768.0 ? UIUserInterfaceSizeClassCompact : UIUserInterfaceSizeClassRegular);
+        
+        // create a new Trait Collection
+//        UITraitCollection *newTraitCollection = [UITraitCollection traitCollectionWithVerticalSizeClass:newSizeClass];
+        UITraitCollection *newVerticalTraitCollection   = [UITraitCollection traitCollectionWithVerticalSizeClass:newSizeClass];
+        UITraitCollection *newHorizontalTraitCollection = [UITraitCollection traitCollectionWithHorizontalSizeClass:newSizeClass];
+        UITraitCollection *newTraitCollection = [UITraitCollection traitCollectionWithTraitsFromCollections:@[newHorizontalTraitCollection, newVerticalTraitCollection]];
+        
+        // assign new Trait Collection to child view = self
+        [self.navigationController setOverrideTraitCollection:newTraitCollection forChildViewController:self];
+        
     }
-
-    /*  simple, but not best performance: install all constraints in self.view
-     *  --> it would be better to install the constraints in the closest common ancestor of the concerning views of the constraint
-     *  (but would also make it more complex to set up, since it would require several IBOutletCollections, arrays etc.
-     */
-
-    [self.view removeConstraints:self.layoutConstraintsLandscape];
-    [self.view removeConstraints:self.layoutConstraintsPortrait];
-    [self.view addConstraints:(UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) ? self.layoutConstraintsPortrait : self.layoutConstraintsLandscape];
 }
 
 @end
